@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: monapp
+  labels:
+    app: monapp
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: monapp
+  template:
+    metadata:
+      labels:
+        app: monapp
+    spec:
+      containers:
+      - name: monapp
+        image: monapp:1.0
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 80
